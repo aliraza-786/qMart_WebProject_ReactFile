@@ -21,13 +21,17 @@ class Task extends Component {
       }
 
       addToCart = () =>{
-        let ItemName = this.props.item.title;
-        let ItemPrice = this.props.item.price;
+        let id = this.props.item.id;
+        let ItemName = this.props.item.Title;
+        let ItemPrice = this.props.item.Price;
+        // let img = this.props.item.img;
 
 
         let mycart = {
+            id: id,
             ItemName : ItemName,
-            ItemPrice : ItemPrice
+            ItemPrice : ItemPrice,
+            // img : img
         }
         alert("Item Added")
         this.props.MyCart(mycart);
@@ -38,8 +42,9 @@ class Task extends Component {
         let items = this.props.item;
         return (
             <div className="col-xl-3 col-md-5 col-sm-5 " id="check1">
+                {/* <p>ID :{items.id}</p> */}
                 <h5 id="h5"><b><o>{items.Title}</o></b></h5>
-                <p id="">{items.Des} </p>
+                <p id=""><b>{items.Des}</b> </p>
                 <p id="">Price : {items.Price}</p>
                 <img id="divimg" src={items.img} alt="Error" />
                 <button type="button" onClick={this.addToCart} class="btn btn-outline-primary" >Add To Cart</button>                                    

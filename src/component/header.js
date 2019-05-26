@@ -43,7 +43,7 @@ function ButtonAppBar(props) {
           <Button color="inherit"><Link id='link' to='/' className='inherit'>shopping_cart</Link></Button> */}
           <Button color="inherit"><Link id='link' to='/' className='inherit'>Home</Link></Button>
           <Button color="inherit"><Link id='link' to='/MyCart' className='inherit'>MyCart</Link></Button>
-          <Button color="inherit"><Link id='link' to='/AddItems' className='inherit'>Add New Item</Link></Button>          
+          <Button color="inherit"><Link id='link' to='/AddItem' className='inherit'>Add New Item</Link></Button>          
           <Button color="inherit"><Link id='link' to='/LogInForm' className='inherit'>Admin</Link></Button>          
           
         </Toolbar>

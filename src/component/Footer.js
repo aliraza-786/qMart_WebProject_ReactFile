@@ -14,7 +14,7 @@ export default class Footer extends Component {
                                 <h1>Q Mart</h1>
                                 <ul>
                                     <li>Address </li>
-                                    <li>786-D  D-ground Faisalabad</li>
+                                    <li>Peoples Colony # 1  D-ground Faisalabad</li>
                                     {/* <li>Cash On Delivery</li> */}
                                 </ul>
                             </div>

@@ -8,12 +8,15 @@ import './Task.css';
 class MyCart extends Component {
 MyCart = this.props.MyCart;
 
-  deleteBtnClicked = (ItemName) => {
+  deleteBtnClicked = (id) => {
         //Delete Btn ki waja say sirf Error he baki thekh he    
       // let ProductName = this.props.MyCart;
       // console.log("This is MyCart Component", ProductName);    
-      this.props.DeleteItem(ItemName);
-      alert('Deleted!'+ ItemName);
+      this.props.DeleteItem(id);
+      alert('Deleted!' + id);
+}
+  totalBill = (ItemPrice) => {
+    let sum = 0;
 }
 
   render() {
@@ -28,12 +31,17 @@ MyCart = this.props.MyCart;
           
           {MyCart.length > 0 ?
             MyCart.map(MyCart => {
-              let name = MyCart.ItemName;
+              // let name = MyCart.ItemName;
+              let name = MyCart.id;
               return (
                 <div className="form-group" id="myCartDiv">
-                  <h4>Product Name : {MyCart.ItemName} <br/>Product Price : {MyCart.ItemPrice}</h4>
+                  <b><o>Id : {MyCart.id} <br/> Product Name : {MyCart.ItemName} <br/>Product Price : {MyCart.ItemPrice}</o></b>
+                  
                   <button type="button" class="close" aria-label="Close" id="crossbtn" 
-                  onClick={() => this.deleteBtnClicked(MyCart.ItemName)}
+                  onClick={() => this.deleteBtnClicked(
+                    // MyCart.ItemName
+                    MyCart.id
+                    )}
                   >
                   <span aria-hidden="true">&times;</span>
                   </button>
@@ -47,6 +55,7 @@ MyCart = this.props.MyCart;
             </div>
           }
         </div>
+        {/* <button onClick={() => this.totalBill(MyCart.ItemPrice)}>Total Bill</button> */}
       </div>
     )
   }
@@ -56,7 +65,7 @@ function mapStateToProps(store) {
   console.log("mapStateToPropd In MyCart.js:", store);//store.MyCart
 
   return {
-    MyCart: store.cartReducer.MyCart
+    MyCart: store.cartReducer.MyCart,
     // items: store.getAllDataReducer.items
 
   }

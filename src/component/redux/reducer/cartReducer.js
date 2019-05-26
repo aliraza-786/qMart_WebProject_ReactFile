@@ -12,18 +12,18 @@ import {DeleteAction} from '../action/cartAction';
 
 const initState = {
     items: [
-        {
-        id:new Date(),
-        title:'Nestle Juice',
-        desc: "6 Pack of 100ml",
-        price: 780,
-        img:image6
-        },
-        {id:new Date(),title:'Coca Cola ', desc: "6 Pack of 1.5ml",price:510,img: image1},
-        {id:new Date(),title:'Pepsi Cola', desc: "6 Pack of 1.5ml", price:490,img: image2},
-        {id:new Date(),title:'Sprite', desc: "6 Pack of 1.5ml ",price:510,img: image3},
-        {id:new Date(),title:'Fruitien', desc: "6 Pack of 1.5ml", price:550,img:image4},
-        {id:new Date(),title:'Nestle Purelife', desc: "6 Pack of 1.5ml", price:240,img: image5},
+        // {
+        // id:new Date(),
+        // title:'Nestle Juice',
+        // desc: "6 Pack of 100ml",
+        // price: 780,
+        // img:image6
+        // },
+        // {id:new Date(),title:'Coca Cola ', desc: "6 Pack of 1.5ml",price:510,img: image1},
+        // {id:new Date(),title:'Pepsi Cola', desc: "6 Pack of 1.5ml", price:490,img: image2},
+        // {id:new Date(),title:'Sprite', desc: "6 Pack of 1.5ml ",price:510,img: image3},
+        // {id:new Date(),title:'Fruitien', desc: "6 Pack of 1.5ml", price:550,img:image4},
+        // {id:new Date(),title:'Nestle Purelife', desc: "6 Pack of 1.5ml", price:240,img: image5},
     ],
     MyCart:[],
     total: 0
@@ -59,7 +59,8 @@ export default function cartReducer(state = initState, action) {
                     // var a = action.data;
                     return { 
                         ...state,
-                        MyCart: mItems.filter( (item) => item.ItemName !== action.data )
+                        // MyCart: mItems.filter( (item) => item.ItemName !== action.data )
+                        MyCart: mItems.filter( (item) => item.id !== action.data )
                     }
                 }
             

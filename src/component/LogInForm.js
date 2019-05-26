@@ -14,6 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import './LogInForm.css';
 import Header from './header';
+import Cover from './Images/cover.jpg'
 // import {BrowserRouter , Router , Link} from 'react-router-dom';
 
 
@@ -33,6 +34,7 @@ const useStyles = makeStyles(theme => ({
   '@global': {
     body: {
       backgroundColor: theme.palette.common.white,
+      backgroundImage: "url(" + Cover + ")"
     },
   },
   paper: {
@@ -58,6 +60,7 @@ export default function SignIn() {
   const classes = useStyles();
   return (
     <Container component="main" maxWidth="xs" id="logincontainer">
+            <marquee id="marqueeid">This Page Is Only For Admin</marquee>
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
@@ -73,9 +76,9 @@ export default function SignIn() {
             required
             fullWidth
             id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
+            label="User Name"
+            name="UserName"
+            autoComplete="User Name"
             autoFocus
           />
           <TextField
@@ -98,7 +101,7 @@ export default function SignIn() {
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
+            // className={classes.submit}
           >
               LogIn
           </Button>
@@ -117,10 +120,10 @@ export default function SignIn() {
         </form>
       </div>
       <Box mt={5}>
-        <p>This Form Is Only For Admin</p>
-        <Link id='link' to='/' className='inherit'>Back To Home</Link>
+        <p></p>
+        {/* <Link id='link' to='/' className='inherit'>Back To Home</Link> */}
         {/* <link rel="stylesheet" href="Home"/> */}
-        <a href="/">Back To Home</a>
+        <a id="BackToHomeLink" href="/">Back To Home</a>
       </Box>
       {/* <Button color="inherit"></Button> */}
     </Container>
