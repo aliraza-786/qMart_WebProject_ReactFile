@@ -1,5 +1,5 @@
 import { getAllData, GETALLDATA } from '../action/simpleAction';
-import axios from 'axios';
+
 
 const initState = {
     items: [],

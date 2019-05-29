@@ -10,6 +10,7 @@
     "clsx": "^1.0.4",
     "material-ui": "^0.20.2",
     "mdbreact": "^4.14.0",
+    "multer": "^1.4.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.2",

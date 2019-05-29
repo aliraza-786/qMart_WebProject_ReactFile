@@ -41,7 +41,7 @@
 //         img: img
 //     }
 //     this.props.CartAction(task);
-//     this.props.history.push('/');
+//     this.props.history.push('/AddItems');
 //     }    
 // }
 

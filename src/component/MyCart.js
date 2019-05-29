@@ -9,15 +9,14 @@ class MyCart extends Component {
 MyCart = this.props.MyCart;
 
   deleteBtnClicked = (id) => {
-        //Delete Btn ki waja say sirf Error he baki thekh he    
-      // let ProductName = this.props.MyCart;
-      // console.log("This is MyCart Component", ProductName);    
+ 
       this.props.DeleteItem(id);
       alert('Deleted!' + id);
 }
+
   totalBill = (ItemPrice) => {
-    let sum = 0;
-}
+
+  }
 
   render() {
     
@@ -32,11 +31,11 @@ MyCart = this.props.MyCart;
           {MyCart.length > 0 ?
             MyCart.map(MyCart => {
               // let name = MyCart.ItemName;
-              let name = MyCart.id;
+              let id = MyCart.id;
               return (
                 <div className="form-group" id="myCartDiv">
                   <b><o>Id : {MyCart.id} <br/> Product Name : {MyCart.ItemName} <br/>Product Price : {MyCart.ItemPrice}</o></b>
-                  
+
                   <button type="button" class="close" aria-label="Close" id="crossbtn" 
                   onClick={() => this.deleteBtnClicked(
                     // MyCart.ItemName
@@ -45,6 +44,8 @@ MyCart = this.props.MyCart;
                   >
                   <span aria-hidden="true">&times;</span>
                   </button>
+
+                  {/* <button onClick={() => this.totalBill(MyCart.ItemPrice)}>Total Bill</button> */}
                 </div>
               )
             })
@@ -55,6 +56,7 @@ MyCart = this.props.MyCart;
             </div>
           }
         </div>
+        
         {/* <button onClick={() => this.totalBill(MyCart.ItemPrice)}>Total Bill</button> */}
       </div>
     )
@@ -66,7 +68,6 @@ function mapStateToProps(store) {
 
   return {
     MyCart: store.cartReducer.MyCart,
-    // items: store.getAllDataReducer.items
 
   }
 }

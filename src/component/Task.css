@@ -1,18 +1,24 @@
 
 
 #check1{
-    border: 2px solid gray;
+    border: 1px solid gray;
     /* width: auto; */
     height: auto;
     margin: 10px;
     padding: 20px;
+
     /* float: left; */
 }
+
 #divimg{
-    width: 50%;
+    width: 45%;
     height: 40%;
     /* margin:5px; */
     /* padding: 5px; */
+}
+#addToCartBtn{
+    width: auto;
+    height: auto;
 }
 
 #myCartDiv{

@@ -9,6 +9,7 @@ import Footer from './Footer';
 import {Slideshow} from './Slider';
 import { getAllData } from './redux/action/simpleAction';
 
+
 class Home extends Component {
 
 
@@ -34,7 +35,8 @@ class Home extends Component {
             )
           })
           :
-          <div>No Task Found!</div>
+          // <div>No Task Found!</div>
+            <div>Loading....</div>
         }
         </div>
         </div>

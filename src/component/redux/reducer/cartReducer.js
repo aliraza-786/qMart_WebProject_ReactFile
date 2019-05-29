@@ -5,7 +5,7 @@ import image4 from '../../Images/fruitien.jpg';
 import image5 from '../../Images/nestle-water-1.jpg';
 import image6 from '../../Images/nestle-juice.jpg';
 
-import { saveAction } from '../action/cartAction';
+// import { saveAction } from '../action/cartAction';
 import {myCart} from '../action/cartAction';
 import { RESET } from '../action/cartAction';
 import {DeleteAction} from '../action/cartAction';
@@ -33,14 +33,23 @@ export default function cartReducer(state = initState, action) {
     
     switch (action.type) {
         
+        // case 'saveAction':
+        // console.log('In Reducer SaveAction: ', state);
+        // let prev = state.items;
+        // prev.push(action.data);
+        //     return {
+        //         ...state,
+        //         tasks: prev
+        //     }
         case 'saveAction':
-        console.log('In Reducer SaveAction: ', state);
-        let prev = state.items;
-        prev.push(action.data);
-            return {
-                ...state,
-                tasks: prev
-            }
+            console.log('In Reducer SaveAction: ', state);
+            // let prev = state.items;
+            // prev.push(action.data);
+                return {
+                    ...state,
+                    // tasks: prev
+                    items: action.data
+                }
         
             case myCart:
             console.log('In Reducer MyCart: ', state);

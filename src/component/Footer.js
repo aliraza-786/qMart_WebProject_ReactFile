@@ -6,8 +6,8 @@ export default class Footer extends Component {
     render() {
         return (
             <div>
-                <div class="dummy_page"></div>
-                <div class="footer" id="footer">
+                <div className="dummy_page"></div>
+                <div className="footer" id="footer">
                     <div className="contain container" >
                         <div className="row">
                             <div className="col col-xl-3 col-md-3 col-sm-3">
