@@ -14,6 +14,7 @@ import MyCart from './component/MyCart';
 import Footer from './component/Footer';
 import LogInForm from './component/LogInForm';
 import AddItem from './component/AddItems/AddItem';
+import userInfo from './component/User/userInfo';
 
 import { getAllData } from './component/redux/action/simpleAction';
 import { connect } from 'react-redux';
@@ -34,6 +35,7 @@ class App extends Component {
             <Route path='/Footer' component={Footer}/>
             <Route path='/LogInForm' component={LogInForm}/>
             <Route path='/AddItem' component={AddItem}/>
+            <Route path='/userInfo' component={userInfo}/>
           </div>
         </R>
       </Provider>

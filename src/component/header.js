@@ -9,8 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import './practice.css'
 import Qmart from './Images/Qmart.jpg';
-
-import {BrowserRouter , Router , Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const styles = {
   root: {
@@ -29,7 +28,7 @@ function ButtonAppBar(props) {
   const { classes } = props;
   return (
     <div className={classes.root} id="headerui">
-      <AppBar position="static" >
+      <AppBar position="static" style={{ backgroundColor: 'rgb(40, 11, 226)' }} >
         <Toolbar>
           <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
             {/* <MenuIcon /> */}

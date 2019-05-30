@@ -70,7 +70,7 @@ export default function SignIn() {
           Admin LogInForm
         </Typography>
         <form className={classes.form} noValidate
-         action="http://localhost:5050/login" method="POST"
+        //  action="/login" method="POST"
          >
           <TextField
             variant="outlined"

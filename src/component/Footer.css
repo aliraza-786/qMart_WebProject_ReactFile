@@ -1,29 +1,17 @@
-/* REMOVE THIS, USE YOUR OWN  */
-/* html,body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, Sans-serif;
-    background-color: #070617;
-  } */
+body{
+  /* background-color: aliceblue; */
+}
   #footer{
       /* height: 400px; */
       /* border: 10px solid red; */
   }
-  /* .dummy_page {
-    height: 10px;
-    width: 100%;
-    background-color: #f0f0f0;
-    text-align: center;
-    box-sizing: border-box;
-    padding: 60px 0px;
-  } */
   /* STYLES SPECIFIC TO FOOTER  */
   #footer {
     width: 100%;
     position: relative;
     /* height: 300px; */
-    background-color: #070617;
-    /* background-color: rgb(25, 0, 139); */
+    /* background-color: #070617; */
+    background-color: rgb(40, 11, 226);
   }
   .footer .col {
     width: 190px;
