@@ -21,7 +21,7 @@ export function CartAction(task){
     return dispatch => {
 
         let url = 'http://localhost:8080/todo/save';
-        axios.post(url)
+        axios.post(url, task)
             .then( res => {
                 console.log("========DATA AT SAVEACTION======", res.task);
                 
@@ -30,6 +30,7 @@ export function CartAction(task){
                     data: res.task
                 })
             } )
+            alert("Item Add")
     }
 };
 

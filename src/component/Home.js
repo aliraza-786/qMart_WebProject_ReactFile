@@ -25,7 +25,7 @@ class Home extends Component {
       <div>
         <Header/>
         <Slideshow/>
-        <div  className="container" style={{ backgroundColor: '' ,  padding: 20,}  }>
+        <div  className="container" style={{ backgroundColor: '', padding: 20,} }>
           <div  className="row">
         {items.length > 0 ?
           items.map(items => {

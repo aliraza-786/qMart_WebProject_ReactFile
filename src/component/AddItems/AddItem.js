@@ -40,22 +40,22 @@ class AddItem extends Component {
 
     
     
-    if(Title == 0 && Des == 0 && Price == 0){
-        alert("PLZ Fill Out All Field");
-    }
-    else{
+    // if(Title == 0 && Des == 0 && Price == 0){
+    //     alert("PLZ Fill Out All Field");
+    // }
+    // else{
     let task = {
         id: id,
-        Title: Title,
-        Des: Des,
-        Price:Price,
+        title: Title,
+        des: Des,
+        price:Price,
         img: img
     }
     // this.setState(this.props.CartAction(task))
     this.props.CartAction(task);
     this.props.history.push('/AddItem');
     }    
-}
+// }
 
   render() {
   return (
@@ -71,9 +71,9 @@ class AddItem extends Component {
           style={{ width: '80rem', height: '30rem' }}
         >
           <form 
-          action="http://localhost:8080/todo/save"
+          // action="http://localhost:8080/todo/save"
           method="POST" enctype="multipart/form-data"
-          // onSubmit={this.onSubmit} 
+          onSubmit={this.onSubmit} 
           >
             <div className="form-group">
               <input type="number" className="form-control" id="" aria-describedby="emailHelp" placeholder="ITEM ID"

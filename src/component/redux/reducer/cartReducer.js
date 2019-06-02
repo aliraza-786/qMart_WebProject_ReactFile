@@ -38,13 +38,15 @@ export default function cartReducer(state = initState, action) {
                     items: action.data
                 }
         
-            case myCart:
-            console.log('In Reducer MyCart: ', state);
-            let preve = state.MyCart;
-            preve.push(action.data);
-                return {
-                    ...state,
-                    addedItems: preve,
+            case myCart:{
+                console.log('In Reducer MyCart: ', state);
+                let preve = state.MyCart;
+                preve.push(action.data);
+                    return {
+                        ...state,
+                        // addedItems: preve,
+                        MyCart: preve,
+                    }
                 }
 
                 case DeleteAction:
@@ -64,6 +66,7 @@ export default function cartReducer(state = initState, action) {
                     return{
                         ...state,
                         order : action.data
+
                     }
             
         default:

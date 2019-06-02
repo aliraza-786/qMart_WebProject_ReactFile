@@ -50,7 +50,7 @@ class Task extends Component {
                 <p id="">{items.Des}</p>
                 <p id="">Price : {items.Price}</p>
                 <img id="divimg" src={items.img} alt="Error" />
-                <button type="button" onClick={this.addToCart} id="addToCartBtn" class="btn btn-outline-primary" >Add To Cart</button>
+                <button type="button" onClick={this.addToCart} id="addToCartBtn" className="btn btn-outline-primary" >Add To Cart</button>
             </div>
         )
     }
