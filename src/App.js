@@ -12,12 +12,15 @@ import Header from './component/header';
 import AddItems from './component/AddItems';
 import MyCart from './component/MyCart';
 import Footer from './component/Footer';
-import LogInForm from './component/LogInForm';
+// import LogInForm from './component/LogInForm';
+import LogInForm from './component/LogIn Form/LogInForm';
 import AddItem from './component/AddItems/AddItem';
 import userInfo from './component/User/userInfo';
 
 import { getAllData } from './component/redux/action/simpleAction';
 import { connect } from 'react-redux';
+
+import AdminHome from './component/Admin/AdminHome';
 
 
 
@@ -36,6 +39,7 @@ class App extends Component {
             <Route path='/LogInForm' component={LogInForm}/>
             <Route path='/AddItem' component={AddItem}/>
             <Route path='/userInfo' component={userInfo}/>
+            <Route path='/AdminHome' component={AdminHome}/>
           </div>
         </R>
       </Provider>

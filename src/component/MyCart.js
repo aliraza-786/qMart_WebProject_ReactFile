@@ -66,18 +66,18 @@ class MyCart extends Component {
               let id = MyCart.id;
 
               return (
-                // <Grid container>
-                //   <Box
-                //     boxShadow={3}
-                //     bgcolor="background.paper"
-                //     m={1}
-                //     p={1}
-                //     style={{ width: '100rem', height: '8rem' }}>
+                <Grid container>
+                  <Box
+                    boxShadow={3}
+                    bgcolor="background.paper"
+                    m={1}
+                    p={1}
+                    style={{ width: '100rem', height: '8rem' }}>
 
                 <div className="form-group" id="myCartDiv">
                   <b> Item Name : {MyCart.ItemName} <br /> {MyCart.ItemDes}
                     <br />Price : {MyCart.ItemPrice}</b>
-
+                    
                   <button type="button" class="close" aria-label="Close" id="crossbtn"
                     onClick={() => this.deleteBtnClicked(
                       MyCart.id
@@ -86,13 +86,13 @@ class MyCart extends Component {
                     <span aria-hidden="true">&times;</span>
                   </button>
 
-                  {/* <button onClick={() => this.totalBill(MyCart.ItemPrice)}>Total Bill</button> */}
+                  <button onClick={() => this.totalBill(MyCart.ItemPrice)}>Total Bill</button>
 
                   {/* Es button say data mongodb main store hota he  */}
                   <button onClick={() => this.order(MyCart)}>Confirm...OrderNow</button>
                 </div>
-                // </Box>
-                // </Grid>
+                 </Box>
+                 </Grid>
               )
             })
             :

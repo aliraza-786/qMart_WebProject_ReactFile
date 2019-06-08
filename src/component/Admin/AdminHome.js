@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import Header from './header';
+import Header from './aHeader.js';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-// import Action from './redux/action/cartAction';
-import { CartAction } from './redux/action/cartAction';
-import Task from './Task';
-import Footer from './Footer';
-import {Slideshow} from './Slider';
+import { CartAction } from '../redux/action/cartAction';
+import AdminTask from './AdminTask';
+import Footer from '../Footer';
+import {Slideshow} from '../Slider';
 
-import { getAllData } from './redux/action/simpleAction';
+// import { getAllData } from './redux/action/simpleAction';
+import {getAllData} from '../redux/action/simpleAction';
 
 
 class Home extends Component {
@@ -31,8 +31,7 @@ class Home extends Component {
         {items.length > 0 ?
           items.map(items => {
             return (
-              <Task item={items}
-              />
+              <AdminTask item={items}/>
             )
           })
           :
@@ -48,7 +47,7 @@ class Home extends Component {
 }
 
 function mapStatetoProps(store) {
-  console.log("This is Home.js Console:", store);
+  console.log("This is AdminHome.js Console:", store);
   return {
     // items: store.cartReducer.items
     items: store.getAllDataReducer.items

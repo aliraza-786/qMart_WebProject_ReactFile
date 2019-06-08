@@ -3,6 +3,7 @@ import axios from "axios";
 export const RESET = 'RESET'
 export const DeleteAction = 'DELETE';
 export const OrderNow = 'ORDER';
+export const itemDelete = 'ITEMDELETE';
 
 // export const saveAction = 'SAVE';
 export const myCart = 'SAVE';
@@ -46,17 +47,16 @@ export function MyCart(mycart){
 
 //Delete Selected Item
 
-export function DeleteItem(ProductName) {
+export function DeleteItem(ProductId) {
     //Delete Btn ki waja say sirf Error he baki thekh he
-    console.log('In Action Delete: ', ProductName)
+    console.log('In Action Delete: ', ProductId)
     return {
         type: DeleteAction,
-        data: ProductName 
+        data: ProductId
     }
 }
 
 //Save MyCart Into MongoDB;
-
 export function orderNow(order){
     console.log('In Action OrderNow', order);
 
@@ -73,5 +73,24 @@ export function orderNow(order){
                 })
             } )
             alert("Item Added Into DB Cart", order);
+    }
+};
+
+
+    //Delete Data from MongoDB
+export function ItemDelete(id){
+    console.log('In Action Delete Data From MongoDB', id);
+
+    return dispatch => {
+
+        let url = 'http://localhost:8080/todo/itemDelete';
+        axios.get(url, id)
+            .then( res => {
+
+                dispatch({
+                    type: 'ItemDelete',
+                    data: res.id
+                })
+            } )
     }
 };

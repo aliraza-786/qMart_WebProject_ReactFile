@@ -7,8 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import './practice.css'
-import Qmart from './Images/Qmart.jpg';
+import '../practice.css'
+import Qmart from '../Images/Qmart.jpg';
 import {Link} from 'react-router-dom';
 
 const styles = {
@@ -37,12 +37,9 @@ function ButtonAppBar(props) {
           <Typography variant="h6" color="inherit" className={classes.grow}>
             {/* News */}
           </Typography>
-          
-          <Button color="inherit"><Link id='link' to='/' className='inherit'>Home</Link></Button>
-          <Button color="inherit"><Link id='link' to='/MyCart' className='inherit'>MyCart</Link></Button>
-          {/* <Button color="inherit"><Link id='link' to='/AddItem' className='inherit'>Add New Item</Link></Button>           */}
-          <Button color="inherit"><Link id='link' to='/LogInForm' className='inherit'>Admin</Link></Button>          
-          
+          <Button color="inherit"><Link id='link' to='/AdminHome' className='inherit'>Home</Link></Button>
+          <Button color="inherit"><Link id='link' to='/AddItem' className='inherit'>Add New Item</Link></Button>          
+          <Button color="inherit"><Link id='link' to='/' className='inherit'>LogOut</Link></Button>          
         </Toolbar>
       </AppBar>
     </div>
