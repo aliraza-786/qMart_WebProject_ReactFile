@@ -72,7 +72,7 @@ export function orderNow(order){
                     data: res.order
                 })
             } )
-            alert("Item Added Into DB Cart", order);
+            alert("Item Added Into DB Cart" +  order);
     }
 };
 

@@ -23,7 +23,7 @@ class AdminTask extends Component {
         let items = this.props.item;
         return (
             <div className="col-xl-3 col-md-4 col-sm-6 col-xs-6" id="check1">
-                <p></p>
+                <p>Item ID : {items.id}</p>
                 <h5 id="h5"><b>{items.Title}</b></h5>
                 <p id="">{items.Des}</p>
                 <p id="">Price : {items.Price}</p>

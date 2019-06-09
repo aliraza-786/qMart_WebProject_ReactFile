@@ -14,31 +14,26 @@ class MyCart extends Component {
 
   MyCart = this.props.MyCart;
 
-
+  //Delete Data From MyCart
   deleteBtnClicked = (id) => {
 
     this.props.DeleteItem(id);
     alert('Deleted!' + id);
   }
 
+  //Calculate Total Bill 
   totalBill = (MyCart) => {
     console.log(MyCart);
+    
     let price = MyCart.ItemPrice;
     console.log(price);
     
-    let cart = [];
-    cart = [price];
+    let cart = [price];
+    // cart = [price];
     console.log("cart", cart);
-    
-    // for(var i = 0; i< cart.length ; i++){
-    //   Bill += cart[i];
-    //   alert("Total Bill Is " + Bill);
-    // }
-    // alert("Total Bill Is " + Bill);
-
   }
 
-
+  
   order = (MyCart) => {
 
     if (MyCart == "") {
@@ -66,19 +61,19 @@ class MyCart extends Component {
               let id = MyCart.id;
 
               return (
-                <Grid container>
-                  <Box
-                    boxShadow={3}
-                    bgcolor="background.paper"
-                    m={1}
-                    p={1}
-                    style={{ width: '100rem', height: '8rem' }}>
+                // <Grid container>
+                //   <Box
+                //     boxShadow={3}
+                //     bgcolor="background.paper"
+                //     m={1}
+                //     p={1}
+                //     style={{ width: '100rem', height: '8rem' }}>
 
                 <div className="form-group" id="myCartDiv">
                   <b> Item Name : {MyCart.ItemName} <br /> {MyCart.ItemDes}
                     <br />Price : {MyCart.ItemPrice}</b>
-                    
-                  <button type="button" class="close" aria-label="Close" id="crossbtn"
+
+                  <button type="button" className="close" aria-label="Close" id="crossbtn"
                     onClick={() => this.deleteBtnClicked(
                       MyCart.id
                     )}
@@ -86,13 +81,14 @@ class MyCart extends Component {
                     <span aria-hidden="true">&times;</span>
                   </button>
 
-                  <button onClick={() => this.totalBill(MyCart.ItemPrice)}>Total Bill</button>
+                  {/* <button onClick={() => this.totalBill(MyCart.ItemPrice)}>Total Bill</button> */}
 
                   {/* Es button say data mongodb main store hota he  */}
-                  <button onClick={() => this.order(MyCart)}>Confirm...OrderNow</button>
+                  {/* <button onClick={() => this.order(MyCart)}>Confirm...OrderNow</button> */}
+
                 </div>
-                 </Box>
-                 </Grid>
+                //  </Box>
+                //  </Grid>
               )
             })
             :
@@ -105,7 +101,9 @@ class MyCart extends Component {
         </div>
 
 
-        <button onClick={() => this.order(MyCart)}>Confirm...</button>
+        <button 
+        // onClick={() => this.order(MyCart)}
+        >Confirm...</button>
 
         <div style={{marginTop: 450,}}>
         <Footer/>

@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { connect } from 'react-redux';
-import Header from '../header';
+import Header from '../Admin/aHeader';
 import Footer from '../Footer';
 import {CartAction} from '../redux/action/cartAction';
 
@@ -25,6 +25,7 @@ class AddItem extends Component {
     e.preventDefault();
 
     let id = e.target.elements.id.value;
+    // let id = new Date()
     let Title = e.target.elements.title.value;
     let Des = e.target.elements.des.value;
     let Price = e.target.elements.price.value;
@@ -53,7 +54,7 @@ class AddItem extends Component {
     }
     // this.setState(this.props.CartAction(task))
     this.props.CartAction(task);
-    this.props.history.push('/AddItem');
+    this.props.history.push('/AdminHome/AddItem');
     }    
 // }
 

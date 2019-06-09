@@ -33,7 +33,7 @@ class App extends Component {
         <R>
           <div>
             <Route exact path='/' component={Home}/>
-            <Route path='/AddItems' component={AddItems}/>
+            {/* <Route path='/AddItems' component={AddItems}/> */}
             <Route path='/MyCart' component={MyCart}/>
             <Route path='/Footer' component={Footer}/>
             <Route path='/LogInForm' component={LogInForm}/>

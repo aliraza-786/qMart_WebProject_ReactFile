@@ -3,28 +3,39 @@ body{
 }
 
 #check1{
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
     width: auto;
     height: auto;
     /* margin: 10px; */
     padding: 20px;
     border-radius: 15px;
 }
-
 #divimg{
     /* width: 45%; */
     /* height: 40%; */
     width: 100px;
     height: 100px;
-    
-    /* margin:5px; */
-    /* padding: 5px; */
-    /* float: left; */
+}
+#divimg:hover{
+    /* width: 150px; */
+    text-align: center;
+    /* height: 110px; */
+    /* transform: rotate(20deg); */
+    /* transform: skewY(20deg); */
+    -webkit-transform: scaleX(3);
+    transform: scaleX(1.2);
+
 }
 #addToCartBtn{
-    width: auto;
+    width: 50px;
     height: auto;
-
+    float: right;
+    /* margin: 5px;
+    padding: 10px; */
+}
+#addToCartBtn:hover{
+    background-color: rgb(236, 181, 77);
+    border: 0px solid orange;
 }
 
 #myCartDiv{

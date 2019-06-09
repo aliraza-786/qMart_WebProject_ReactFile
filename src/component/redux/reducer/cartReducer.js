@@ -54,7 +54,6 @@ export default function cartReducer(state = initState, action) {
                     // console.log('In Reducer DeleteAction: ', state.MyCart);
                     let mItems = state.MyCart;
                     console.log('This is mItems:', mItems);
-                    // var a = action.data;
                     return { 
                         ...state,
                         // MyCart: mItems.filter( (item) => item.ItemName !== action.data )
@@ -68,6 +67,12 @@ export default function cartReducer(state = initState, action) {
                         order : action.data
 
                     }
+
+                // case 'itemDelete':
+                //     let allItem = state.items;
+                //     return{
+                //         ...state,
+                //     }
             
         default:
             return state;
