@@ -68,11 +68,12 @@ export default function cartReducer(state = initState, action) {
 
                     }
 
-                // case 'itemDelete':
-                //     let allItem = state.items;
-                //     return{
-                //         ...state,
-                //     }
+                case 'itemDelete':
+                    let allItem = state.items;
+                    return{
+                        ...state,
+                        itemDelete: action.data
+                    }
             
         default:
             return state;

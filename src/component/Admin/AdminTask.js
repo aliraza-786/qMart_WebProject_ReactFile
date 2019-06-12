@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import '../Task.css';
-// import {MyCart} from './redux/action/cartAction';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
 
 import {ItemDelete} from '../redux/action/cartAction';
 
@@ -16,13 +17,20 @@ class AdminTask extends Component {
    delete = (id) => {
        this.props.ItemDelete(id);
        alert("ID : " + id);
-   }
+}
     
       
     render() {
         let items = this.props.item;
         return (
             <div className="col-xl-3 col-md-4 col-sm-6 col-xs-6" id="check1">
+                <Grid container>
+                    <Box
+                        boxShadow={3}
+                        bgcolor="background.paper"
+                        m={1}
+                        p={1}
+                        style={{ width: '35rem', height: '19rem' }}>
                 <p>Item ID : {items.id}</p>
                 <h5 id="h5"><b>{items.Title}</b></h5>
                 <p id="">{items.Des}</p>
@@ -30,11 +38,13 @@ class AdminTask extends Component {
                 <img id="divimg" src={items.img} alt="Error" />
                 {/* <button type="button" id="addToCartBtn" className="btn btn-outline-primary" >
                 Delete Item</button> */}
-                <button type="button" class="close" aria-label="Close" id="crossbtn"
-                onClick={() => this.delete(items.id)}   
+                <button type="button" className="close" aria-label="Close" id="crossbtn"
+                onClick={() => this.delete(items)}   
                 >
                     <span aria-hidden="true">&times;</span>
                   </button>
+                </Box>
+                </Grid>
             </div>
         )
     }

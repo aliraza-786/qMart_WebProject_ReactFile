@@ -54,7 +54,7 @@ class AddItem extends Component {
     }
     // this.setState(this.props.CartAction(task))
     this.props.CartAction(task);
-    this.props.history.push('/AdminHome/AddItem');
+    this.props.history.push('/AddItem');
     }    
 // }
 
@@ -80,23 +80,23 @@ class AddItem extends Component {
               <input type="number" className="form-control" id="" aria-describedby="emailHelp" placeholder="ITEM ID"
                 name="id" min="1" />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <input type="text" className="form-control" id="" placeholder="ITEM NAME" name="title" />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <input type="text" className="form-control" id="" placeholder="ITEM DESCRIPTION" name="des" />
             </div>
             <div className="form-group">
               <input type="number" className="form-control" id="" aria-describedby="emailHelp" placeholder="ITEM PRICE"
               name="price" min="1"/>
             </div>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text">ITEM IMAGE</span>
+            <div className="input-group mb-3">
+              <div className="input-group-prepend">
+                <span className="input-group-text">ITEM IMAGE</span>
               </div>
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="inputGroupFile01" name="img" />
-                <label class="custom-file-label" for="inputGroupFile01"></label>
+              <div className="custom-file">
+                <input type="file" className="custom-file-input" id="inputGroupFile01" name="img" />
+                <label className="custom-file-label" for="inputGroupFile01"></label>
               </div>
             </div>
             <button type="submit" className="btn btn-primary" 

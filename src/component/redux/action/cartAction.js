@@ -82,14 +82,13 @@ export function ItemDelete(id){
     console.log('In Action Delete Data From MongoDB', id);
 
     return dispatch => {
-
         let url = 'http://localhost:8080/todo/itemDelete';
-        axios.get(url, id)
+        axios.post(url,id)
             .then( res => {
-
+                
                 dispatch({
-                    type: 'ItemDelete',
-                    data: res.id
+                    type: ItemDelete,
+                    data: res.id,
                 })
             } )
     }
