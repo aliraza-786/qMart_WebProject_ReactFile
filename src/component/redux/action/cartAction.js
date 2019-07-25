@@ -1,12 +1,14 @@
 import React from 'react';
 import axios from "axios";
+import EndPoint from '../../../EndPoint/EndPoint';
+
 export const RESET = 'RESET'
 export const DeleteAction = 'DELETE';
-export const OrderNow = 'ORDER';
+export const order = 'ORDER';
 export const itemDelete = 'ITEMDELETE';
-
-// export const saveAction = 'SAVE';
 export const myCart = 'SAVE';
+export const DELETEORDER = 'DELETEORDER';
+
 
 // export function CartAction(task){
 //     return{
@@ -15,17 +17,17 @@ export const myCart = 'SAVE';
 //     }
 // };
 
-//Save Data Into MongoDB (Using AddItem Page)
+    //Save Data Into MongoDB (Using AddItem Page)
 export function CartAction(task){
     console.log('In Action save data', task);
 
     return dispatch => {
 
-        let url = 'http://localhost:8080/todo/save';
+
+        let url = EndPoint + '/todo/save';
         axios.post(url, task)
             .then( res => {
-                console.log("========DATA AT SAVEACTION======", res.task);
-                
+                console.log("========DATA AT SAVEACTION======", task);                
                 dispatch({
                     type: 'saveAction',
                     data: res.task
@@ -35,7 +37,7 @@ export function CartAction(task){
     }
 };
 
-//Item Add (Home Page) into MyCart (MyCart Page)
+    //Item Add (Home Page) into MyCart (MyCart Page)
 export function MyCart(mycart){
     console.log('In Action mycart:', mycart);
     
@@ -45,10 +47,9 @@ export function MyCart(mycart){
     }
 };  
 
-//Delete Selected Item
-
+    //Delete Selected Item
 export function DeleteItem(ProductId) {
-    //Delete Btn ki waja say sirf Error he baki thekh he
+    
     console.log('In Action Delete: ', ProductId)
     return {
         type: DeleteAction,
@@ -56,23 +57,26 @@ export function DeleteItem(ProductId) {
     }
 }
 
-//Save MyCart Into MongoDB;
-export function orderNow(order){
-    console.log('In Action OrderNow', order);
+    //Save MyCart Into MongoDB;
+export function orderNow(cart){
+    console.log('In Action OrderNow', cart);
 
     return dispatch => {
 
-        let url = 'http://localhost:8080/todo/carts';
-        axios.post(url, order)
+        let url = EndPoint+ '/todo/carts';
+        axios.post(url, cart)
             .then( res => {
-                console.log("========DATA AT SAVEACTION======", order);
+                alert("Ordered confirmed!")
                 
                 dispatch({
-                    type: OrderNow,
-                    data: res.order
+                    type: order,
+                    data: res.cart
                 })
-            } )
-            alert("Item Added Into DB Cart" +  order);
+
+            })
+            .catch( err => {
+                alert("Error: " + err);
+            })
     }
 };
 
@@ -82,7 +86,7 @@ export function ItemDelete(id){
     console.log('In Action Delete Data From MongoDB', id);
 
     return dispatch => {
-        let url = 'http://localhost:8080/todo/itemDelete';
+        let url = EndPoint + '/todo/itemDelete';
         axios.post(url,id)
             .then( res => {
                 
@@ -93,3 +97,20 @@ export function ItemDelete(id){
             } )
     }
 };
+
+    //Delete User Order from MongoDB
+    export default function orderdelete(phonenumber){
+        console.log('In Action Delete Data From MongoDB', phonenumber);
+    
+        return dispatch => {
+            let url = EndPoint + '/todo/userOrderDelete';
+            axios.post(url,phonenumber)
+                .then( res => {
+                    
+                    dispatch({
+                        type: DELETEORDER,
+                        data: res.phonenumber,
+                    })
+                } )
+        }
+    };

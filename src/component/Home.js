@@ -6,10 +6,9 @@ import { withRouter } from 'react-router-dom';
 import { CartAction } from './redux/action/cartAction';
 import Task from './Task';
 import Footer from './Footer';
-import {Slideshow} from './Slider';
+import Slideshow from './Slider';
 
 import { getAllData } from './redux/action/simpleAction';
-
 
 class Home extends Component {
 
@@ -50,7 +49,6 @@ class Home extends Component {
 function mapStatetoProps(store) {
   console.log("This is Home.js Console:", store);
   return {
-    // items: store.cartReducer.items
     items: store.getAllDataReducer.items
   }
 }

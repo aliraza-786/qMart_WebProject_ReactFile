@@ -15,26 +15,28 @@ import Container from '@material-ui/core/Container';
 import './LogInForm.css';
 import Header from '../header';
 import Cover from '../Images/cover.jpg'
+import { withRouter } from "react-router-dom";
 // import {BrowserRouter , Router , Link} from 'react-router-dom';
 
 
-function MadeWithLove() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Built with love by the '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Material-UI
-      </Link>
-      {' team.'}
-    </Typography>
-  );
-}
+// function MadeWithLove() {
+//   return (
+//     <Typography variant="body2" color="textSecondary" align="center">
+//   //     {'Built with love by the '}
+//   //     <Link color="inherit" href="https://material-ui.com/">
+//   //       Material-UI
+//   //     </Link>
+//   //     {' team.'}
+//     </Typography>
+//   );
+// }
 
 const useStyles = makeStyles(theme => ({
   '@global': {
     body: {
       backgroundColor: theme.palette.common.white,
-      backgroundImage: "url(" + Cover + ")"
+      // backgroundImage: "url(" + Cover + ")",
+      backgroundImage: "url( Cover ),"
     },
   },
   paper: {
@@ -56,83 +58,92 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-//  function logIn(e){
-//   e.preventDefault();
-//   let UserName = e.target.UserName.value;
-//   let Password = e.target.password.value;
+class SignIn extends React.Component {
 
-//   if(UserName === 'Admin' && Password === '12345'){
-//       alert("Welcome");
-//       this.props.history.push('/AdminHome');
-//   }
-//   else{
-//     alert("InCorrect USerName And Password");
-//   }
-// }
+  logIn = (e) => {
+    e.preventDefault();
 
-export default function SignIn() {
-  
-  const classes = useStyles();
-  return (
-    <Container component="main" maxWidth="xs" id="logincontainer">
-            <marquee id="marqueeid">This Page Is Only For Admin</marquee>
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Admin LogInForm
-        </Typography>
-        <form className={classes.form} noValidate
-        // onSubmit={logIn}
-        //  action="/login" method="POST"
-         >
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="User Name"
-            name="UserName"
-            autoComplete="User Name"
-            autoFocus
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            // className={classes.submit}
+    let UserName = e.target.elements.username.value;
+    let Password = e.target.elements.password.value;
+
+      if (UserName === 'admin' && Password === '12345') {
+        localStorage.setItem('username', UserName);
+        localStorage.setItem('password', Password);
+        alert("Welcome");
+        this.props.history.push('/AdminHome');
+      }
+      else {
+        alert("InCorrect UserName And Password");
+      }
+  }
+
+  render() {
+
+    return (
+      <Container component="main" maxWidth="xs" id="logincontainer" >
+        <marquee id="marqueeid">This Page Is Only For Admin</marquee>
+        <CssBaseline />
+        <div>
+          <Avatar>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5" >
+            Admin LogInForm
+          </Typography>
+          <form noValidate
+            onSubmit={(event) => this.logIn(event)}
+            // action="http://localhost:8080/todo/login" 
+            method="get"
           >
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="User Name"
+              name="username"
+              autoComplete="User Name"
+              autoFocus
+            />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+            />
+            {/* <input type='file' name="file"/> */}
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+            >
               LogIn
-          </Button>
-          <Grid container>
-          </Grid>
-        </form>
-      </div>
-      <Box mt={5}>
-        <p></p>
-        <a id="BackToHomeLink" href="/">Back To Home</a>
-      </Box>
-      {/* <Button color="inherit"></Button> */}
-    </Container>
+            </Button>
+            <Grid container>
+            </Grid>
+          </form>
+        </div>
+        <Box mt={5}>
+          <p></p>
+          <a id="BackToHomeLink" href="/">Back To Home</a>
+        </Box>
+        {/* <Button color="inherit"></Button> */}
+      </Container>
 
-  );
+    );
+  }
+
 }
+
+export default withRouter(SignIn) 

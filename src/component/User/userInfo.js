@@ -3,9 +3,11 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Header from '../header';
 import Footer from '../Footer' ;
+import { log } from 'util';
 
 export default class userInfo extends Component {
   render() {
+    
     return (
         <div>
             <Header/>

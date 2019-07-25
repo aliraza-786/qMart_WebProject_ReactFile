@@ -1,22 +1,14 @@
 import image1 from '../../Images/coa-cola-1.jpeg'
 
 // import { saveAction } from '../action/cartAction';
-import {myCart, OrderNow} from '../action/cartAction';
-import { RESET } from '../action/cartAction';
+import {myCart} from '../action/cartAction';
 import {DeleteAction} from '../action/cartAction';
+import {order} from '../action/cartAction';
 
 const initState = {
-    items: [
-        // {
-        // id:new Date(),
-        // title:'Nestle Juice',
-        // desc: "6 Pack of 100ml",
-        // price: 780,
-        // img:image1
-        // },
-    ],
+    items: [],
     MyCart:[],
-    total: 0
+    orderNow:[],
 }
 
 export default function cartReducer(state = initState, action) {
@@ -44,7 +36,6 @@ export default function cartReducer(state = initState, action) {
                 preve.push(action.data);
                     return {
                         ...state,
-                        // addedItems: preve,
                         MyCart: preve,
                     }
                 }
@@ -61,20 +52,31 @@ export default function cartReducer(state = initState, action) {
                     }
                 }
 
-                case 'OrderNow':
-                    return{
+                case order:
+                {
+                    console.log("OrderNow In Reducer", state );
+                    // let pre = state.orderNow;
+                    // pre.push(action.data);
+                    return {
                         ...state,
-                        order : action.data
-
+                        orderNow: action.data,
+                        // order: pre,
+                        
                     }
-
+                }
+                
                 case 'itemDelete':
-                    let allItem = state.items;
-                    return{
+                    return {
                         ...state,
                         itemDelete: action.data
                     }
-            
+
+                case 'DELETEORDER':
+                    return {
+                        ...state,
+                        DELETEORDER: action.data
+                    }
+
         default:
             return state;
     }

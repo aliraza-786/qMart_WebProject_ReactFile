@@ -19,8 +19,8 @@ import userInfo from './component/User/userInfo';
 
 import { getAllData } from './component/redux/action/simpleAction';
 import { connect } from 'react-redux';
-
 import AdminHome from './component/Admin/AdminHome';
+import userOrder from './component/Admin/userOrder';
 
 
 
@@ -40,6 +40,7 @@ class App extends Component {
             <Route path='/AddItem' component={AddItem}/>
             <Route path='/userInfo' component={userInfo}/>
             <Route path='/AdminHome' component={AdminHome}/>
+            <Route path='/userOrder' component={userOrder}/>
           </div>
         </R>
       </Provider>

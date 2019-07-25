@@ -17,46 +17,29 @@ class AddItem extends Component {
       title: '',
       des: '',
       price: '',
-      img:[]
+      img:'',
     };
   }
 
+  saveForm=(e)=>{
+    this.setState({[e.target.name] : e.target.value});
+  }
+  image=(e)=>{
+    this.setState({[e.target.name]: e.target.files[0]})
+  }
   onSubmit = (e) => {
     e.preventDefault();
 
-    let id = e.target.elements.id.value;
-    // let id = new Date()
-    let Title = e.target.elements.title.value;
-    let Des = e.target.elements.des.value;
-    let Price = e.target.elements.price.value;
-    // let img = e.target.elements.file.files[0];
-    let img = e.target.elements.file;
-    console.log(e.target.elements.file);
+    let data = new FormData();
+    data.append('id', this.state.id)
+    data.append('title', this.state.title)
+    data.append('des', this.state.des)
+    data.append('price', this.state.price)
+    data.append('img', this.state.img)
 
-    // let id = this.state.id;
-    // let Title = this.state.title;
-    // let Des = this.state.des;
-    // let Price = this.state.price;
-    // let img = this.state.img;
-
-    
-    
-    // if(Title == 0 && Des == 0 && Price == 0){
-    //     alert("PLZ Fill Out All Field");
-    // }
-    // else{
-    let task = {
-        id: id,
-        title: Title,
-        des: Des,
-        price:Price,
-        img: img
-    }
-    // this.setState(this.props.CartAction(task))
-    this.props.CartAction(task);
+    this.props.CartAction(data);
     this.props.history.push('/AddItem');
     }    
-// }
 
   render() {
   return (
@@ -72,35 +55,44 @@ class AddItem extends Component {
           style={{ width: '80rem', height: '30rem' }}
         >
           <form 
-          // action="http://localhost:8080/todo/save"
-          method="POST" enctype="multipart/form-data"
-          onSubmit={this.onSubmit} 
+          method="POST" enctype="multipart/form-data" 
+          onSubmit={this.onSubmit}
           >
             <div className="form-group">
               <input type="number" className="form-control" id="" aria-describedby="emailHelp" placeholder="ITEM ID"
-                name="id" min="1" />
+                name="id" min="1" required 
+                value={this.state.id}
+                onChange={this.saveForm}  />
             </div>
             <div className="form-group">
-              <input type="text" className="form-control" id="" placeholder="ITEM NAME" name="title" />
+              <input type="text" className="form-control" id="" placeholder="ITEM NAME" name="title" required
+              value={this.state.title}
+              onChange={this.saveForm}/>
             </div>
             <div className="form-group">
-              <input type="text" className="form-control" id="" placeholder="ITEM DESCRIPTION" name="des" />
+              <input type="text" className="form-control" id="" placeholder="ITEM DESCRIPTION" name="des" required
+              value={this.state.des}
+              onChange={this.saveForm}/>
             </div>
             <div className="form-group">
               <input type="number" className="form-control" id="" aria-describedby="emailHelp" placeholder="ITEM PRICE"
-              name="price" min="1"/>
+              name="price" min="1" required 
+              value={this.state.price}
+              onChange={this.saveForm}/>  
             </div>
             <div className="input-group mb-3">
               <div className="input-group-prepend">
                 <span className="input-group-text">ITEM IMAGE</span>
               </div>
               <div className="custom-file">
-                <input type="file" className="custom-file-input" id="inputGroupFile01" name="img" />
-                <label className="custom-file-label" for="inputGroupFile01"></label>
+                <input type="file" className="custom-file-input" id="inputGroupFile01" name="img" required
+                value={this.state.img.value}
+                onChange={this.image}/>
+                <label className="custom-file-label" for="inputGroupFile01">Upload Image</label>
               </div>
             </div>
             <button type="submit" className="btn btn-primary" 
-            // onClick={this.onSubmit} 
+            // onSubmit={()=>this.onSubmit()}//========
             >Submit</button>
           </form>
         </Box>
@@ -111,5 +103,4 @@ class AddItem extends Component {
   );
 }
 }
-// export default AddItem;
 export default connect(null, {CartAction} )(AddItem);

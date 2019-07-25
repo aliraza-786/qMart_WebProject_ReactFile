@@ -1,9 +1,10 @@
-import { getAllData, GETALLDATA } from '../action/simpleAction';
+import { getAllData, GETALLDATA , GETUSERORDER } from '../action/simpleAction';
 
 
 const initState = {
     items: [],
-    carts: []
+    carts: [],
+    userOrder:[]
 }
 
 export default function getAllDataReducer(state = initState, action) {
@@ -15,6 +16,15 @@ export default function getAllDataReducer(state = initState, action) {
             return  {
                 ...state,
                 items: action.data
+            }
+        }
+
+        case GETUSERORDER: 
+        
+        {
+            return  {
+                ...state,
+                userOrder: action.data
             }
         }
 

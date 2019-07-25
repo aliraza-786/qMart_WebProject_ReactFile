@@ -18,10 +18,12 @@ class AdminTask extends Component {
        this.props.ItemDelete(id);
        alert("ID : " + id);
 }
-    
-      
+     
     render() {
         let items = this.props.item;
+        let path = items.img.slice(6);
+        console.log("<=======Path====>", path);
+
         return (
             <div className="col-xl-3 col-md-4 col-sm-6 col-xs-6" id="check1">
                 <Grid container>
@@ -30,18 +32,16 @@ class AdminTask extends Component {
                         bgcolor="background.paper"
                         m={1}
                         p={1}
-                        style={{ width: '35rem', height: '19rem' }}>
+                        style={{ width: '36rem', height: '21rem' }}>
                 <p>Item ID : {items.id}</p>
                 <h5 id="h5"><b>{items.Title}</b></h5>
                 <p id="">{items.Des}</p>
                 <p id="">Price : {items.Price}</p>
-                <img id="divimg" src={items.img} alt="Error" />
-                {/* <button type="button" id="addToCartBtn" className="btn btn-outline-primary" >
-                Delete Item</button> */}
+                {/* <img id="divimg" src={items.img} alt="Error" /> */}
+                <img id="divimg" src={'http://localhost:8080/' + path} alt="Error" />
                 <button type="button" className="close" aria-label="Close" id="crossbtn"
-                onClick={() => this.delete(items)}   
-                >
-                    <span aria-hidden="true">&times;</span>
+                onClick={() => this.delete(items)}>
+                <span aria-hidden="true">&times;</span>
                   </button>
                 </Box>
                 </Grid>

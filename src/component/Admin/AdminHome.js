@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { CartAction } from '../redux/action/cartAction';
 import AdminTask from './AdminTask';
 import Footer from '../Footer';
-import {Slideshow} from '../Slider';
+import Slideshow from '../Slider';
 
 // import { getAllData } from './redux/action/simpleAction';
 import {getAllData} from '../redux/action/simpleAction';

@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 .slide-container {
     width: 100%;
     /* margin: auto; */
@@ -16,16 +8,15 @@
     /* text-align: center;  */
   }
 
-  
   .each-slide > div {
     display: flex;
-    /* align-items: center; */
-    /* justify-content: center; */
-    background-size: cover; 
+    /* align-items: center;
+    justify-content: center; */
+    /* background-size: cover;  */
     background-repeat: no-repeat;
-    overflow: auto;
-    width: 100%;
-    height: 600px;
+    overflow: hidden;
+    width: 99%;
+    height: 400px;
   }
   
   .each-slide {

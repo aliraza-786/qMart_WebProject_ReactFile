@@ -10,6 +10,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import './practice.css'
 import Qmart from './Images/Qmart.jpg';
 import {Link} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 const styles = {
   root: {
@@ -24,32 +25,44 @@ const styles = {
   },
 };
 
-function ButtonAppBar(props) {
-  const { classes } = props;
-  return (
-    <div className={classes.root} id="headerui">
-      <AppBar position="static" style={{ backgroundColor: 'rgb(40, 11, 226)' }} >
-        <Toolbar>
-          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            {/* <MenuIcon /> */}
-             <img src={Qmart} id="qmartLogo"/>
-          </IconButton>
-          <Typography variant="h6" color="inherit" className={classes.grow}>
-            {/* News */}
-          </Typography>
-          
-          <Button color="inherit"><Link id='link' to='/' className='inherit'>Home</Link></Button>
-          <Button color="inherit"><Link id='link' to='/MyCart' className='inherit'>MyCart</Link></Button>
-          <Button color="inherit"><Link id='link' to='/LogInForm' className='inherit'>Admin</Link></Button>          
+class ButtonAppBar extends React.Component {
 
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
+  checkUser = () => {
+    if(localStorage.getItem('username') || localStorage.getItem('password')) {
+      alert("Welcome");
+      this.props.history.push('/AdminHome');
+    } else {
+      this.props.history.push('/LogInForm');
+    }
+  }
+
+  render() {
+    const { classes } = this.props;
+    return (
+      <div className={classes.root} id="headerui">
+        <AppBar position="static" style={{ backgroundColor: 'rgb(40, 11, 226)' }} >
+          <Toolbar>
+            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu" >
+              {/* <MenuIcon /> */}
+              <img src={Qmart} id="qmartLogo"/>
+            </IconButton>
+            <Typography variant="h6" color="inherit" className={classes.grow}>
+              {/* News */}
+            </Typography>
+            
+            <Button color="inherit"><Link id='link' to='/' className='inherit'>Home</Link></Button>
+            <Button color="inherit"><Link id='link' to='/MyCart' className='inherit'>MyCart</Link></Button>
+            <Button color="inherit" onClick={this.checkUser}>Admin</Button>          
+
+          </Toolbar>
+        </AppBar>
+      </div>
+    );
+  }
 }
 
 ButtonAppBar.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ButtonAppBar);
+export default withRouter(withStyles(styles)(ButtonAppBar));

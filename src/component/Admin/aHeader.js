@@ -10,6 +10,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import '../practice.css'
 import Qmart from '../Images/Qmart.jpg';
 import {Link} from 'react-router-dom';
+import UserOrder from '../Admin/userOrder';
+import { withRouter } from 'react-router-dom';
 
 const styles = {
   root: {
@@ -24,30 +26,42 @@ const styles = {
   },
 };
 
-function ButtonAppBar(props) {
-  const { classes } = props;
-  return (
-    <div className={classes.root} id="headerui">
-      <AppBar position="static" style={{ backgroundColor: 'rgb(40, 11, 226)' }} >
-        <Toolbar>
-          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            {/* <MenuIcon /> */}
-             <img src={Qmart} id="qmartLogo"/>
-          </IconButton>
-          <Typography variant="h6" color="inherit" className={classes.grow}>
-            {/* News */}
-          </Typography>
-          <Button color="inherit"><Link id='link' to='/AdminHome' className='inherit'>Home</Link></Button>
-          <Button color="inherit"><Link id='link' to='/AddItem' className='inherit'>Add New Item</Link></Button>          
-          <Button color="inherit"><Link id='link' to='/' className='inherit'>LogOut</Link></Button>          
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
+
+
+class ButtonAppBar extends React.Component {
+
+  checkUser = () => {
+    
+    localStorage.clear();
+    this.props.history.push('/');
+  }
+
+  render() {
+  const { classes } = this.props;
+    return (
+      <div className={classes.root} id="headerui">
+        <AppBar position="static" style={{ backgroundColor: 'rgb(40, 11, 226)' }} >
+          <Toolbar>
+            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+              {/* <MenuIcon /> */}
+              <img src={Qmart} id="qmartLogo"/>
+            </IconButton>
+            <Typography variant="h6" color="inherit" className={classes.grow}>
+              {/* News */}
+            </Typography>
+            <Button color="inherit"><Link id='link' to='/AdminHome' className='inherit'>Home</Link></Button>
+            <Button color="inherit"><Link id='link' to='/AddItem' className='inherit'>Add Item</Link></Button>          
+            <Button color="inherit"><Link id='link' to='/UserOrder' className='inherit'>Customer Order</Link></Button>          
+            <Button color="inherit" onClick={this.checkUser}>LogOut</Button>          
+          </Toolbar>
+        </AppBar>
+      </div>
+    );
+  }
 }
 
 ButtonAppBar.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ButtonAppBar);
+export default withRouter(withStyles(styles)(ButtonAppBar));
